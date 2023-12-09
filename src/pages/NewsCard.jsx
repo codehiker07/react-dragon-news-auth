@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
-  const { title, image_url, details } = news;
+  const { title, image_url, details, _id } = news;
   return (
     <div>
       <div className="card bg-base-100">
@@ -14,7 +14,12 @@ const NewsCard = ({ news }) => {
           {details.length > 200 ? (
             <p>
               {details.slice(0, 200)}{" "}
-              <Link className="text-green-600 font-semibold">Read more...</Link>
+              <Link
+                to={`/news/${_id}`}
+                className="text-green-600 font-semibold"
+              >
+                Read more...
+              </Link>
             </p>
           ) : (
             <p>{details}</p>
